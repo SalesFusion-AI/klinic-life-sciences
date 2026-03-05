@@ -25,6 +25,9 @@
       --shadow: 0 18px 40px rgba(21, 59, 80, 0.12);
       --radius: 16px;
       --radius-lg: 22px;
+      --accent-blue: #9fd0ff;
+      --accent-green: #bdf7cd;
+      --accent-purple: #d6c5ff;
     }
 
     * { box-sizing: border-box; }
@@ -36,7 +39,7 @@
       background: var(--klinic-bg);
       color: var(--text);
       font-family: "Figtree", "Montserrat", sans-serif;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     img { max-width: 100%; display: block; }
@@ -125,7 +128,21 @@
     .nav-cta { display: flex; gap: 12px; }
 
     .hero {
-      padding: 80px 0 60px;
+      padding: 86px 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -180px;
+      right: -120px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(202, 255, 185, 0.5), rgba(202, 255, 185, 0) 70%);
+      opacity: 0.7;
+      pointer-events: none;
     }
 
     .hero-grid {
@@ -142,19 +159,19 @@
       line-height: 1.15;
     }
 
-    h1 { font-size: clamp(34px, 4vw, 56px); }
+    h1 { font-size: clamp(34px, 4vw, 58px); }
     h2 { font-size: clamp(26px, 3vw, 40px); }
     h3 { font-size: 22px; }
 
     .subhead {
       font-size: 18px;
       color: var(--text);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .subsub {
       color: var(--text-muted);
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
@@ -244,9 +261,129 @@
       margin-top: 16px;
     }
 
+    .feature-list {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      color: var(--text-muted);
+      display: grid;
+      gap: 10px;
+    }
+
+    .feature-list li {
+      margin: 0;
+    }
+
+    .journey {
+      padding: 40px 0 70px;
+    }
+
+    .journey-header {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .journey-flow {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .journey-flow::before {
+      content: "";
+      position: absolute;
+      top: 34px;
+      left: 4%;
+      right: 4%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(21, 59, 80, 0.1), rgba(21, 59, 80, 0.45), rgba(21, 59, 80, 0.1));
+      z-index: 0;
+    }
+
+    .journey-step {
+      position: relative;
+      background: #ffffff;
+      border: 1px solid rgba(21, 59, 80, 0.12);
+      border-radius: 14px;
+      padding: 18px 16px 16px;
+      text-align: center;
+      box-shadow: 0 8px 22px rgba(21, 59, 80, 0.08);
+      z-index: 1;
+    }
+
+    .journey-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: #f2f9f4;
+      display: grid;
+      place-items: center;
+      color: var(--klinic-dark);
+      border: 1px solid rgba(21, 59, 80, 0.1);
+      margin: 0 auto 10px;
+    }
+
+    .journey-step h4 {
+      margin: 6px 0 6px;
+      font-size: 16px;
+    }
+
+    .journey-step p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .how-it-works {
+      padding: 60px 0;
+      background: linear-gradient(180deg, #fbfffa, #f5fbf6 85%);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .step-card {
+      border-radius: var(--radius);
+      border: 1px solid rgba(21, 59, 80, 0.12);
+      padding: 24px;
+      background: #ffffff;
+      box-shadow: 0 10px 26px rgba(21, 59, 80, 0.08);
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--klinic-dark);
+      color: var(--klinic-green);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
     .results {
-      padding: 70px 0;
-      background: #f4faf6;
+      padding: 76px 0;
+      background: var(--klinic-dark);
+      color: #f4fff9;
+      position: relative;
+    }
+
+    .results::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(202, 255, 185, 0.12), transparent 50%),
+                  radial-gradient(circle at bottom right, rgba(202, 255, 185, 0.18), transparent 55%);
+      pointer-events: none;
+    }
+
+    .results h2 {
+      color: #f4fff9;
     }
 
     .stats-grid {
@@ -256,31 +393,36 @@
     }
 
     .stat-card {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
       border-radius: var(--radius);
-      padding: 22px;
-      border: 1px solid rgba(21, 59, 80, 0.1);
+      padding: 24px;
+      border: 1px solid rgba(202, 255, 185, 0.18);
       text-align: center;
-      box-shadow: 0 10px 26px rgba(21, 59, 80, 0.08);
+      box-shadow: 0 10px 26px rgba(9, 26, 34, 0.35);
     }
 
     .stat-card .value {
-      font-size: 28px;
+      font-size: 34px;
       font-weight: 700;
-      color: var(--klinic-dark);
+      color: var(--klinic-green);
+    }
+
+    .stat-card div:last-child {
+      color: rgba(255, 255, 255, 0.85);
+      margin-top: 6px;
     }
 
     .case-study {
-      padding: 64px 0;
+      padding: 70px 0;
     }
 
     .case-card {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
       gap: 28px;
       background: #ffffff;
       border-radius: var(--radius-lg);
-      padding: 32px;
+      padding: 34px;
       border: 1px solid rgba(21, 59, 80, 0.1);
       box-shadow: var(--shadow);
     }
@@ -290,6 +432,66 @@
       gap: 12px;
       color: var(--text-muted);
     }
+
+    .case-stats {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .case-stat {
+      background: #f5fbf6;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      border: 1px solid rgba(21, 59, 80, 0.12);
+    }
+
+    .case-stat .value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--klinic-dark);
+    }
+
+    .resources {
+      padding: 70px 0;
+      background: #f9fdf9;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .resource-card {
+      border-radius: var(--radius);
+      border: 1px solid rgba(21, 59, 80, 0.12);
+      padding: 22px;
+      background: #ffffff;
+      box-shadow: 0 10px 24px rgba(21, 59, 80, 0.08);
+      display: grid;
+      gap: 10px;
+    }
+
+    .resource-card .tag {
+      font-size: 11px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(21, 59, 80, 0.7);
+    }
+
+    .resource-card a {
+      font-weight: 600;
+      color: var(--klinic-dark);
+    }
+
+    .resource-whitepaper { border-top: 4px solid var(--accent-blue); }
+    .resource-case { border-top: 4px solid var(--accent-green); }
+    .resource-report { border-top: 4px solid var(--accent-purple); }
 
     .partners {
       padding: 70px 0;
@@ -323,16 +525,30 @@
     }
 
     footer {
-      padding: 40px 0 50px;
+      padding: 50px 0 30px;
       border-top: 1px solid rgba(21, 59, 80, 0.1);
+      background: #f8fdf9;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 20px;
       color: var(--text-muted);
       font-size: 14px;
+    }
+
+    .footer-links p { margin: 6px 0; }
+
+    .footer-bottom {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(21, 59, 80, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: rgba(21, 59, 80, 0.6);
     }
 
     .fade-in {
@@ -347,6 +563,11 @@
     }
 
     /* Responsive adjustments */
+    @media (max-width: 1100px) {
+      .journey-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .journey-flow::before { top: 42px; left: 6%; right: 6%; }
+    }
+
     @media (max-width: 980px) {
       .hero-grid,
       .section-grid,
@@ -357,18 +578,32 @@
       .stats-grid,
       .pillars-grid,
       .partners-grid,
+      .resources-grid,
+      .steps-grid,
       .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .case-stats {
         grid-template-columns: 1fr 1fr;
       }
 
       .nav-links { display: none; }
     }
 
+    @media (max-width: 720px) {
+      .journey-flow { grid-template-columns: 1fr 1fr; }
+      .journey-flow::before { display: none; }
+    }
+
     @media (max-width: 680px) {
       .stats-grid,
       .pillars-grid,
       .partners-grid,
-      .footer-grid {
+      .resources-grid,
+      .steps-grid,
+      .footer-grid,
+      .case-stats {
         grid-template-columns: 1fr;
       }
 
@@ -386,9 +621,11 @@
       </div>
       <nav class="nav-links" aria-label="Primary">
         <a href="#pillars">Pillars</a>
+        <a href="#journey">Journey</a>
         <a href="#features">Capabilities</a>
+        <a href="#how">How It Works</a>
         <a href="#results">Results</a>
-        <a href="#partners">Partners</a>
+        <a href="#resources">Insights</a>
       </nav>
       <div class="nav-cta">
         <a class="btn btn-ghost" href="#features">See How It Works</a>
@@ -402,9 +639,9 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="fade-in">
-          <h1>Go Direct-to-Patient Without the Friction</h1>
-          <p class="subhead">Klinic connects life sciences brands to real patients through compliant digital experiences, licensed providers, and automated pharmacy workflows.</p>
-          <p class="subsub">Activate high-intent patients, improve adherence, and capture real-world data — all in one platform.</p>
+          <h1>Your Brand. Their Doorstep. Zero Friction.</h1>
+          <p class="subhead">Klinic gives life sciences brands a direct line to real patients — through compliant digital acquisition, licensed telehealth providers, and fully automated pharmacy hub services.</p>
+          <p class="subsub">From first click to first fill. One platform. Every step.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#cta">Schedule a Partnership Call</a>
             <a class="btn btn-ghost" href="#features">See How It Works</a>
@@ -421,17 +658,59 @@
           <div class="card fade-in">
             <div class="icon-badge" aria-hidden="true"><i data-lucide="target"></i></div>
             <h3>Patient Activation</h3>
-            <p>Reach motivated, therapy-seeking patients through compliant search, social, and branded landing flows.</p>
+            <p>Patients are already searching for your therapy. Our SEO-powered treatment pages and AI chat widgets capture them at peak intent — routing them into branded experiences that convert at 3x the industry average.</p>
           </div>
           <div class="card fade-in">
             <div class="icon-badge" aria-hidden="true"><i data-lucide="shield-check"></i></div>
             <h3>Provider &amp; Access Integration</h3>
-            <p>Instantly connect patients with licensed providers and automated coverage checks to accelerate time-to-therapy.</p>
+            <p>No more referral black holes. Klinic's nationwide provider network connects patients with licensed MDs and NPs the same day — while automated BV, PA, and copay workflows clear the access path in parallel.</p>
           </div>
           <div class="card fade-in">
             <div class="icon-badge" aria-hidden="true"><i data-lucide="bar-chart-3"></i></div>
             <h3>Real-World Data Stream</h3>
-            <p>Capture de-identified adherence and outcomes data to power RWE, HEOR, and commercial performance tracking.</p>
+            <p>Every touchpoint generates signal. De-identified adherence, PROs, and outcomes data flow into your analytics layer — fueling HEOR submissions, label expansion strategies, and value-based contract negotiations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patient Journey Flow -->
+    <section id="journey" class="journey">
+      <div class="container">
+        <div class="journey-header fade-in">
+          <div class="label">THE PATIENT JOURNEY</div>
+          <h2>From First Click to First Fill — and Beyond</h2>
+        </div>
+        <div class="journey-flow">
+          <div class="journey-step fade-in">
+            <div class="journey-icon"><i data-lucide="search"></i></div>
+            <h4>Ad / Search</h4>
+            <p>Patient discovers therapy</p>
+          </div>
+          <div class="journey-step fade-in">
+            <div class="journey-icon"><i data-lucide="layout"></i></div>
+            <h4>Landing Page</h4>
+            <p>Branded education &amp; qualification</p>
+          </div>
+          <div class="journey-step fade-in">
+            <div class="journey-icon"><i data-lucide="video"></i></div>
+            <h4>Telehealth Visit</h4>
+            <p>Same-day licensed provider</p>
+          </div>
+          <div class="journey-step fade-in">
+            <div class="journey-icon"><i data-lucide="shield-check"></i></div>
+            <h4>Hub Services</h4>
+            <p>BV, PA, copay automated</p>
+          </div>
+          <div class="journey-step fade-in">
+            <div class="journey-icon"><i data-lucide="pill"></i></div>
+            <h4>Pharmacy</h4>
+            <p>Rx filled and shipped</p>
+          </div>
+          <div class="journey-step fade-in">
+            <div class="journey-icon"><i data-lucide="heart-pulse"></i></div>
+            <h4>Adherence</h4>
+            <p>Ongoing monitoring &amp; refills</p>
           </div>
         </div>
       </div>
@@ -443,7 +722,14 @@
         <div class="fade-in">
           <div class="label">PATIENT ACTIVATION</div>
           <h2>Capture &amp; Convert High-Intent Patients</h2>
-          <p>Our SEO-optimized treatment pages and AI chat widgets meet patients at the moment of intent, routing them into branded landing flows and telehealth scheduling. Personalized reminders drive attendance and refill continuity.</p>
+          <p>Patients are already searching for your therapy. Klinic meets them at peak intent and routes them into branded, conversion-optimized experiences.</p>
+          <ul class="feature-list">
+            <li>SEO-optimized condition and treatment landing pages</li>
+            <li>AI chat widget for instant patient qualification</li>
+            <li>Branded telehealth scheduling with automated reminders</li>
+            <li>Personalized SMS/email nurture sequences</li>
+            <li>Refill continuity and adherence nudges</li>
+          </ul>
         </div>
         <div class="placeholder fade-in" aria-hidden="true"></div>
       </div>
@@ -455,7 +741,7 @@
         <div class="fade-in">
           <div class="label">PHARMA HUB SERVICES</div>
           <h2>Automate Benefit Verification, Prior Authorization &amp; Copay</h2>
-          <p>Real-time eligibility checks, AI-assisted Prior Auth submission, denial appeals, and instant copay/PAP enrollment slash average time-to-therapy by 40% compared to traditional hubs.</p>
+          <p>Traditional hubs are slow, opaque, and expensive. Klinic's SmartHub runs real-time eligibility checks the moment a patient engages, auto-submits prior authorizations with AI-assisted clinical documentation, manages denial appeals, and enrolls patients in copay assistance or PAP programs — all before the first appointment ends.</p>
           <div class="stat-callout">
             <i data-lucide="zap" aria-hidden="true"></i>
             40% faster time-to-therapy
@@ -469,7 +755,10 @@
         <div class="fade-in">
           <div class="label">TELE-TITRATION NETWORK</div>
           <h2>Same-Day Provider Coverage Nationwide</h2>
-          <p>Licensed MDs and NPs conduct virtual starts, REMS education, and follow-ups, sharing notes directly with your CRM and SmartHub workflows for an end-to-end closed loop.</p>
+          <p>Launch nationally on day one. Klinic's credentialed provider network covers all 50 states with same-day appointment availability for virtual starts, dose titrations, REMS education, and ongoing monitoring. Every encounter syncs directly to your CRM and hub workflows — no fax machines, no information gaps.</p>
+          <ul class="feature-list">
+            <li>Avg. time from Rx to first fill: 4.2 days</li>
+          </ul>
         </div>
         <div class="placeholder fade-in" aria-hidden="true"></div>
       </div>
@@ -481,7 +770,34 @@
         <div class="fade-in">
           <div class="label">REAL-WORLD EVIDENCE ENGINE</div>
           <h2>Continuous Outcomes &amp; PRO Data</h2>
-          <p>De-identified adherence, vitals, and patient-reported outcomes stream into a HIPAA &amp; SOC 2-compliant data lake — fueling HEOR studies, label expansion, and value-based contract negotiations.</p>
+          <p>Don't wait for claims data. Klinic captures continuous, structured outcomes data from every patient interaction — vitals, adherence patterns, side effect reporting, and patient-reported outcomes. All stored in a HIPAA and SOC 2 Type II compliant data lake with API access for your analytics, HEOR, and commercial teams.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how" class="how-it-works">
+      <div class="container">
+        <div class="fade-in">
+          <div class="label">HOW IT WORKS</div>
+          <h2>Launch, Scale, and Measure in One Platform</h2>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card fade-in">
+            <div class="step-number">1</div>
+            <h3>We Build Your Branded Experience</h3>
+            <p>Custom treatment pages, provider workflows, and hub configurations tailored to your molecule, indication, and commercial strategy.</p>
+          </div>
+          <div class="step-card fade-in">
+            <div class="step-number">2</div>
+            <h3>Patients Flow In Automatically</h3>
+            <p>SEO, paid media, and provider referrals drive qualified patients into your branded funnel. No manual intake. No call centers.</p>
+          </div>
+          <div class="step-card fade-in">
+            <div class="step-number">3</div>
+            <h3>You See Everything in Real Time</h3>
+            <p>Full-funnel analytics from ad impression through refill adherence. Know exactly what's working — and what needs optimization.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -519,12 +835,60 @@
             <div class="label">CLIENT SUCCESS STORY</div>
             <h2>Accelerating Brand Launch with Klinic</h2>
             <div class="case-list">
-              <div><strong>Situation:</strong> After FDA approval, an emerging biotech needed rapid nationwide provider coverage and patient activation for a specialty medication.</div>
-              <div><strong>Solution:</strong> Partnered with Klinic to deploy telehealth titration, automated hub services, and SEO-driven patient acquisition.</div>
-              <div><strong>Results:</strong> First patient on therapy within 14 days of launch. 3x faster than traditional hub timeline.</div>
+              <div><strong>Situation:</strong> A women's health biotech received FDA approval for a first-in-class treatment. They needed nationwide provider coverage, patient activation, and hub services operational within weeks — not months.</div>
+              <div><strong>Challenge:</strong> Deliver an integrated digital experience while navigating complex payer landscapes and REMS requirements.</div>
+              <div><strong>Solution:</strong> Klinic deployed a turnkey launch package: branded patient acquisition pages, a 50-state telehealth titration network, automated BV/PA/copay hub services, and real-time outcomes tracking.</div>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="value">14 days</div>
+                <div>First patient on therapy</div>
+              </div>
+              <div class="case-stat">
+                <div class="value">92%</div>
+                <div>PA approval rate</div>
+              </div>
+              <div class="case-stat">
+                <div class="value">3.8x</div>
+                <div>Faster than traditional hub</div>
+              </div>
+              <div class="case-stat">
+                <div class="value">89%</div>
+                <div>Refill adherence at 90 days</div>
+              </div>
             </div>
           </div>
           <div class="placeholder" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data & Insights Resources -->
+    <section id="resources" class="resources">
+      <div class="container">
+        <div class="fade-in">
+          <div class="label">DATA &amp; INSIGHTS</div>
+          <h2>Resources for Modern Life Sciences Teams</h2>
+        </div>
+        <div class="resources-grid">
+          <div class="resource-card resource-whitepaper fade-in">
+            <div class="tag">WHITEPAPER</div>
+            <h3>Direct-to-Patient 2.0: What Life Sciences Brands Need to Know</h3>
+            <p>How the DTP model is evolving beyond specialty pharmacy into a full-funnel patient engagement strategy.</p>
+            <a href="#">Read Whitepaper →</a>
+          </div>
+          <div class="resource-card resource-case fade-in">
+            <div class="tag">CASE STUDY</div>
+            <h3>From FDA Approval to First Patient in 14 Days</h3>
+            <p>How an emerging biotech used Klinic to launch a specialty medication with zero hub infrastructure delay.</p>
+            <a href="#">Read Case Study →</a>
+          </div>
+          <div class="resource-card resource-report fade-in">
+            <div class="tag">INDUSTRY REPORT</div>
+            <h3>The State of Pharma Hub Services: 2026 Benchmarks</h3>
+            <p>Key metrics on time-to-therapy, PA approval rates, and patient abandonment across therapeutic areas.</p>
+            <a href="#">Read Report →</a>
+          </div>
         </div>
       </div>
     </section>
@@ -533,18 +897,19 @@
     <section id="partners" class="partners">
       <div class="container">
         <h2 class="fade-in">Life Sciences Partners Include</h2>
+        <p class="fade-in" style="color: var(--text-muted); margin-top: -6px;">We work with pharmaceutical companies, emerging biotechs, and digital therapeutics innovators at every stage — from pre-launch planning to lifecycle management.</p>
         <div class="partners-grid">
           <div class="card fade-in">
             <h3>Pharma</h3>
-            <p>Enterprise-grade digital hub operations for top-tier pharmaceutical brands.</p>
+            <p>Full-service digital hub operations, patient acquisition, and outcomes tracking for established brands scaling DTP programs.</p>
           </div>
           <div class="card fade-in">
             <h3>Emerging Biotech</h3>
-            <p>Rapid launch support with flexible telehealth, access, and patient activation programs.</p>
+            <p>Speed-to-market launch support with flexible telehealth networks, access automation, and real-time commercial analytics.</p>
           </div>
           <div class="card fade-in">
             <h3>Digital Therapeutics</h3>
-            <p>Integrated patient journeys blending software, provider care, and adherence tooling.</p>
+            <p>Integrated patient journeys that blend prescription digital therapeutics with provider care, pharmacy fulfillment, and adherence monitoring.</p>
           </div>
         </div>
         <div class="logo-strip fade-in">Trusted by Healthcare Professionals with Backgrounds From: [Logo Strip Placeholder]</div>
@@ -555,9 +920,9 @@
     <section id="cta" class="cta">
       <div class="container section-grid">
         <div class="fade-in">
-          <div class="label" style="color: rgba(202, 255, 185, 0.75);">PARTNER WITH KLINIC</div>
-          <h2 style="color: #CAFFB9;">Partner with Klinic</h2>
-          <p style="color: rgba(202, 255, 185, 0.9);">Schedule a call to discover how Klinic delivers faster starts, higher persistence, and lower total hub cost — all while delighting patients.</p>
+          <div class="label" style="color: rgba(202, 255, 185, 0.75);">READY TO LAUNCH</div>
+          <h2 style="color: #CAFFB9;">Ready to Go Direct-to-Patient?</h2>
+          <p style="color: rgba(202, 255, 185, 0.9);">Join the life sciences brands using Klinic to reach more patients, start therapy faster, and capture outcomes data that drives commercial performance. Let's build your program.</p>
         </div>
         <div class="fade-in" style="display:flex; align-items:center; justify-content:flex-start;">
           <a class="btn btn-primary" href="#">Book a Meeting Now</a>
@@ -575,17 +940,35 @@
         </div>
         <p style="margin-top: 12px;">Direct-to-patient infrastructure for life sciences partnerships.</p>
       </div>
-      <div>
-        <strong>Company</strong>
-        <p>Life Sciences</p>
-        <p>Telehealth</p>
-        <p>Data &amp; Compliance</p>
+      <div class="footer-links">
+        <strong>Platform</strong>
+        <p>Patient Activation</p>
+        <p>Hub Services</p>
+        <p>Tele-Titration</p>
+        <p>Data &amp; Analytics</p>
       </div>
-      <div>
+      <div class="footer-links">
+        <strong>Company</strong>
+        <p>About Klinic</p>
+        <p>Life Sciences</p>
+        <p>For Providers</p>
+        <p>Compliance</p>
+      </div>
+      <div class="footer-links">
         <strong>Contact</strong>
         <p>(216) 478-5990</p>
         <p>support@klinic.com</p>
+        <p>Book a Demo</p>
       </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 Klinic, Inc. All rights reserved.</span>
+      <span>|</span>
+      <span>Terms</span>
+      <span>|</span>
+      <span>Privacy</span>
+      <span>|</span>
+      <span>HIPAA Notice</span>
     </div>
   </footer>
 
