@@ -18,8 +18,7 @@
         {
           "@type": "Organization",
           "name": "Klinic",
-          "url": "https://klinic.com/pharma",
-          "email": "avish@klinic.com"
+          "url": "https://klinic.com/pharma"
         },
         {
           "@type": "Service",
@@ -197,25 +196,18 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--klinic-dark);
-      letter-spacing: 0.01em;
       white-space: nowrap;
     }
 
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--klinic-dark), var(--klinic-dark-2));
-      color: var(--klinic-green);
-      font-weight: 800;
-      font-size: 18px;
-      box-shadow: 0 10px 20px rgba(21, 59, 80, 0.18);
+    .brand img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
+    .site-footer .brand img {
+      height: 40px;
+      filter: brightness(0) invert(1);
     }
 
     .nav-links,
@@ -1241,8 +1233,7 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#top" aria-label="Klinic for Pharma">
-        <span class="brand-mark">K</span>
-        <span>klinic</span>
+        <img src="klinic-logo.svg" alt="Klinic" />
       </a>
 
       <nav class="nav-links" aria-label="Primary navigation">
@@ -1255,7 +1246,7 @@
 
       <div class="nav-actions">
         <a class="nav-login" href="https://app.klinic.com/login">Log in</a>
-        <a class="btn btn-primary" href="mailto:avish@klinic.com?subject=Klinic%20x%20Pharma%20partnership">Book a partnership call</a>
+        <a class="btn btn-primary" href="https://meetings.hubspot.com/klinicai/pharma-discovery" target="_blank" rel="noopener">Book a partnership call</a>
       </div>
     </div>
   </header>
@@ -1269,7 +1260,7 @@
           <p class="lede">Klinic is the commercialization partner for specialty and launch-stage pharma. We activate the prescribers already writing in your category, acquire patients directly through our telehealth network, and handle the access work, prior auth, benefits verification, copay, pharmacy routing, on every prescription.</p>
           <p class="muted">Built for specialty, psych, CNS, GLP-1, MAT, and other launch-stage or underpenetrated brands that need stronger prescriber activation, direct patient demand capture, and cleaner therapy starts.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:avish@klinic.com?subject=Klinic%20x%20Pharma%20partnership">Book a partnership call</a>
+            <a class="btn btn-primary" href="https://meetings.hubspot.com/klinicai/pharma-discovery" target="_blank" rel="noopener">Book a partnership call</a>
             <a class="btn btn-ghost" href="#channels">See how it works</a>
           </div>
         </div>
@@ -1949,13 +1940,12 @@
 
         <aside class="cta-panel fade-in">
           <h3>Book a partnership call</h3>
-          <p>Klinic for Pharma is designed for operator-to-operator conversations. If the goal is faster adoption with tighter execution, reach out directly.</p>
+          <p>Klinic for Pharma is designed for operator-to-operator conversations. If the goal is faster adoption with tighter execution, book a time directly.</p>
           <div style="margin-top:22px; display:grid; gap:12px;">
-            <a class="btn btn-primary" href="mailto:avish@klinic.com?subject=Klinic%20x%20Pharma%20partnership">Email Avish</a>
+            <a class="btn btn-primary" href="https://meetings.hubspot.com/klinicai/pharma-discovery" target="_blank" rel="noopener">Book a partnership call</a>
             <a class="btn btn-ghost" href="https://app.klinic.com/login">Log in</a>
           </div>
           <div class="contact-meta">
-            <div><strong style="color:#ffffff; display:block; margin-bottom:4px;">Contact</strong><a href="mailto:avish@klinic.com">avish@klinic.com</a></div>
             <div><strong style="color:#ffffff; display:block; margin-bottom:4px;">Page</strong><a href="https://klinic.com/pharma">klinic.com/pharma</a></div>
           </div>
         </aside>
@@ -1967,8 +1957,7 @@
     <div class="container footer-grid">
       <div>
         <a class="brand" href="#top" aria-label="Klinic footer">
-          <span class="brand-mark">K</span>
-          <span>klinic</span>
+          <img src="klinic-logo.svg" alt="Klinic" />
         </a>
         <p style="margin-top:12px;">Commercialization partner for specialty and launch-stage pharma.</p>
       </div>
@@ -1991,7 +1980,7 @@
 
       <div>
         <strong>Contact</strong>
-        <a href="mailto:avish@klinic.com">avish@klinic.com</a>
+        <a href="https://meetings.hubspot.com/klinicai/pharma-discovery" target="_blank" rel="noopener">Book a partnership call</a>
         <a href="https://klinic.com/pharma">klinic.com/pharma</a>
       </div>
     </div>
